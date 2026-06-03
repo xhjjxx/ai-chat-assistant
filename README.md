@@ -11,12 +11,6 @@
 - AI 思考状态提示
 - 支持回车键发送消息
 
-## 截图
-
-![AI问答助手界面](screenshot.png)
-
-> 演示：用户说"我叫小许"后，AI记住了名字，后续对话中正确回答"你的名字是小许"。
-
 ## 技术栈
 
 - **后端**: Python · Flask · Session
@@ -33,7 +27,7 @@ pip install flask openai
 
 ### 2. 配置 API Key
 
-方式一：设置环境变量（推荐）
+**方式一：设置环境变量（推荐）**
 
 ```bash
 # Windows CMD
@@ -43,11 +37,15 @@ set DEEPSEEK_API_KEY=sk-your-key-here
 $env:DEEPSEEK_API_KEY="sk-your-key-here"
 ```
 
-方式二：直接在 `app.py` 中替换
+**方式二：创建本地配置文件**
+
+创建 `config.py` 文件（已加入 `.gitignore`，不会推送到GitHub）：
 
 ```python
-API_KEY = "sk-26691fec685f44e5b6117f909ccf2512"
+DEEPSEEK_API_KEY = "sk-your-key-here"
 ```
+
+> ⚠️ **安全提醒**：不要把真实的 API Key 写入代码或推送到GitHub！
 
 申请地址：https://platform.deepseek.com
 
@@ -81,8 +79,9 @@ AI：你叫小明。
 ```
 ai-chat-assistant/
 ├── app.py           # 主程序（Flask服务 + API调用 + Session管理）
-├── .gitignore
-└── README.md
+├── config.py        # 本地配置文件（API Key，不推GitHub）
+├── .gitignore       # 忽略 config.py 和缓存文件
+└── README.md        # 项目说明
 ```
 
 ## License
